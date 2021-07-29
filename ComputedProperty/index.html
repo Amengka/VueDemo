@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<meta charset = "utf-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	</head>
+	<body>
+
+		<div id = "app">
+			<p>Original message: "{{msg}}"</p>
+			<!--计算属性调用-->
+			<p>Reversed message by cmputed: "{{reversedMsg}}"</p>
+			<!-- method(方法)调用-->
+			<p>Reversed message by methods: "{{reversedMsg2()}}"</p>
+
+			<!-- method调用需要在每次访问的时候都进行一次函数操作
+			     而对于计算属性，若message没有发生变化，则会直接返回之前的函数结果-->
+
+		</div>
+
+		<script src="app.js"></script>
+	</body>
+</html>

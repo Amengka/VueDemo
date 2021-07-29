@@ -1,0 +1,71 @@
+<html>
+	<head>
+		<meta charset = "utf-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	</head>
+	<body>
+
+		<div id = "app">
+			<span>  {{  msg  }}  </span>
+
+			<!---   v-once 执行一次性地插值，当数据改变时，插值处的内容不会更新   -->
+			<!--   留心这会影响到该节点上的其它数据绑定-->
+			<span v-once>This will not change any more: {{  msg  }}  </span>
+			<button v-on:click = "msg = 'changed...'">change msg</button>
+
+			<br>
+			<!--   v-html: 输出真正的html代码-->
+			<p>Using mustaches: {{rawHtml}}</p>
+			<p>Using v-html directive: <span v-html = "rawHtml"></span></p>
+
+			<br>
+			<!--   v-bind binding object with html attribute-->
+			<div v-bind:class = "color">this is red</div>
+
+			<!--   bollean type的v-bind稍有不同-->
+			<!--   若isButtonDisabled 的值是 null、undefined 或 false，
+			则 disabled attribute 甚至不会被包含在渲染出来的 <button> 元素中-->
+			<button v-bind:disabled="isButtonDisabled" v-on:click = "color = 'blue'">Button</button>
+
+			<br>
+
+			<!--Using Javascript Syntax-->
+			<!--Caution: 每个绑定都只能包含单个表达式-->
+			<p>{{number + 1}}</p>
+			<!--三元运算-->
+			<p>  {{   ok ? 'yes' : 'no' }}  </p>
+			<p>{{msg.split('').reverse().join('')}}</p>
+
+			<br>
+			<a v-bind:href="url">...</a>
+
+			<br>
+			<!--   Vue修饰符-->
+			<div @click = "click1">
+				<div @click = "click2" >
+					click me
+				</div>
+			</div>
+
+			<!--   .stop可以使程序不运行父集的事件, 即当前事件结束后停止-->
+			<div @click = "click1">
+				<div @click.stop = "click2" >
+					click me
+				</div>
+			</div>
+
+			<br>
+			<!--   使用[ ] 括起来的javascript动态参数-->
+			<div><a v-bind:[href]="url"> there's a hyperlink</a></div>
+			<div><a v-on:[things] = "doSomething">event</a></div>
+
+		</div>
+
+		<script src="app.js"></script>
+		<style type="text/css">
+			.red{color: red;}
+			.blue{color: blue; font-size: 50px;}
+		</style>
+	</body>
+</html>

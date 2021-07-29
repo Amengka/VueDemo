@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<meta charset = "utf-8">
+		<title></title>
+		<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+	</head>
+	<body>
+
+		<div id = "app">
+			<div v-if = "type === 'A'">
+				A
+			</div>
+			<div v-else-if = "type === 'B'">
+				B
+			</div>
+			<div v-else-if = "type === 'C'">
+				C
+			</div>
+			<div v-else>
+				Not A/B/C
+			</div>
+
+			<!--   对于v-show，它所渲染的东西会始终保留于页面上(显示为display: None)
+			          相当于v-if是先判断再渲染
+					               v-show是先渲染再判断-->
+			<div if-show = "ok">
+				hello
+			</div>
+
+			<button v-on:click = app.greet()>Greet</button>
+			<!--<button v-on:click = "greet">Greet</button>-->
+
+			<div>
+				<button v-on:click = "say('hi')">Say Hi</button>
+				<button v-on:click = "say('what')">Say What</button>
+			</div>
+
+		</div>
+
+		<!-- Alt + C -->
+		<input v-on:keyup.alt.67="clear">
+
+		<!-- Ctrl + Click -->
+		<div v-on:click.ctrl="doSomething">Do something</div>
+
+		<!-- 即使 Alt 或 Shift 被一同按下时也会触发 -->
+		<button v-on:click.ctrl="onClick">A</button>
+
+		<!-- 有且只有 Ctrl 被按下的时候才触发 -->
+		<button v-on:click.ctrl.exact="onCtrlClick">A</button>
+
+		<!-- 没有任何系统修饰符被按下的时候才触发 -->
+		<button v-on:click.exact="onClick">A</button>
+
+		<!--关于key https://cn.vuejs.org/v2/guide/conditional.html-->
+
+		<script src="app.js"></script>
+	</body>
+</html>
