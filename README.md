@@ -1,1 +1,1 @@
-The is for Vue study
+It's for Vue study
