@@ -4,7 +4,9 @@ var app = new Vue({
 		message: "", 
 		message2: "", 
 		checkedNames: [], 
-		picked: ""
+		checked: false,
+		picked: "", 
+		selected: ''
 	}, 
 	methods: {
 		submit:function(){
