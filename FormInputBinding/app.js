@@ -6,7 +6,13 @@ var app = new Vue({
 		checkedNames: [], 
 		checked: false,
 		picked: "", 
-		selected: ''
+		selected: '', 
+		options: [
+			{text: 'one', value: 'a'}, 
+			{text: 'two', value: 'b'}, 
+			{text: 'three', value: 'c'}
+		], 
+		MultiSelected: []
 	}, 
 	methods: {
 		submit:function(){

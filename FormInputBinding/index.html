@@ -50,6 +50,7 @@
 
 			<br>
 
+			<!--   单选框   -->
 			<div>
 				<select v-model = "selected">
 					<option disabled value="">Please choose</option>
@@ -61,8 +62,37 @@
 			</div>
 
 			<br>
-			
+
+			<!--单选框using v-for-->
+			<select v-model = "selected">
+				<option v-for = "option in options" v-bind:value = "option.value">
+					{{option.text}}
+				</option>
+			</select>
+			<span>Selected: {{selected}}</span>
+
+			<br>
+
+			<!--   多选框   -->
+			<select v-model = "MultiSelected" multiple style = "width:50px">
+				<option>A</option>
+				<option>B</option>
+				<option>C</option>
+			</select>
+			<br>
+			<span>Selected: {{MultiSelected}}</span>
+
+			<br>
 			<button @click = "submit">Submit</button>
+
+			<!-- 在“change”时而非“input”时更新 -->
+			<input v-model.lazy="msg">
+
+			<!-- 输入值转为数字-->
+			<input v-model.number="age" type="number">
+
+			<!-- 过滤输入前后空白-->
+			<input v-model.trim="msg">
 
 		</div>
 		<script src="app.js"></script>
